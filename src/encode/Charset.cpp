@@ -1,4 +1,4 @@
-﻿#include "UtilCharset.h"
+﻿#include "Charset.h"
 
 #include <string.h>
 #include <errno.h>
@@ -9,10 +9,10 @@
 # include <iconv.h>
 #endif /* ifdef _WIN32 */
 
-namespace Util {
+namespace util {
 
-size_t Charset::covert(const char *fromCharset, const char *toCharset,
-                       char *inBuf, size_t inLen, char *outBuf, size_t outLen)
+size_t covert(const char *fromCharset, const char *toCharset,
+              char *inBuf, size_t inLen, char *outBuf, size_t outLen)
 {
 #ifdef _WIN32
     /// TODO: windows 下没有可以根据编码名称进行转码的库

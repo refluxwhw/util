@@ -1,9 +1,10 @@
-﻿#include "UtilString.h"
+﻿#include "String.h"
 #include <algorithm>
 
-namespace Util {
+namespace util {
+namespace string {
 
-bool String::compare(const std::string &str1, const std::string &str2,
+bool compare(const std::string &str1, const std::string &str2,
                      bool ignoreCase)
 {
     if (ignoreCase)
@@ -20,19 +21,19 @@ bool String::compare(const std::string &str1, const std::string &str2,
     }
 }
 
-std::string& String::toLowerCase(std::string &str)
+std::string& toLowerCase(std::string &str)
 {
     std::transform(str.begin(), str.end(), str.begin(), ::tolower);
     return str;
 }
 
-std::string& String::toUpCase(std::string &str)
+std::string& toUpCase(std::string &str)
 {
     std::transform(str.begin(), str.end(), str.begin(), ::toupper);
     return str;
 }
 
-std::string &String::stripQuotes(std::string &str)
+std::string &stripQuotes(std::string &str)
 {
     while ( str.length() > 2
             && '"' == str.at(0)
@@ -42,7 +43,7 @@ std::string &String::stripQuotes(std::string &str)
     return str;
 }
 
-std::string &String::trim(std::string &str, std::string s)
+std::string &trim(std::string &str, std::string s)
 {
     size_t index = str.find_first_not_of(s);
     if (std::string::npos == index) {
@@ -58,7 +59,7 @@ std::string &String::trim(std::string &str, std::string s)
     return str;
 }
 
-std::vector<std::string> String::split(const std::string &s,
+std::vector<std::string> split(const std::string &s,
                                        const std::string &seperator)
 {
     std::vector<std::string> result;
@@ -109,5 +110,6 @@ std::vector<std::string> String::split(const std::string &s,
     return result;
 }
 
-} // namespace Util
+} // namespace string
+} // namespace util
 

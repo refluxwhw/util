@@ -15,7 +15,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
-#include "base64.h"
+#include "_base64.h"
 
 #ifdef _WIN32
 

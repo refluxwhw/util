@@ -1,4 +1,4 @@
-﻿#include "UtilFile.h"
+﻿#include "File.h"
 
 #ifdef _WIN32
 # include <io.h>
@@ -7,11 +7,13 @@
 # include <unistd.h>
 #endif /* ifdef _WIN32 */
 
-namespace Util {
+namespace util {
+namespace file {
 
-bool File::isFileExist(const char *path)
+bool isFileExist(const char *path)
 {
     return 0 == access(path, F_OK);
 }
 
-}
+} // namespace file
+} // namespace util

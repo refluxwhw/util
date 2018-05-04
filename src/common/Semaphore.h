@@ -4,7 +4,7 @@
 #include <mutex>
 #include <condition_variable>
 
-namespace Util{
+namespace util {
 
 class Semaphore {
 public:
@@ -51,6 +51,6 @@ private:
     std::condition_variable m_condition;
 };
 
-}
+} // namespace util
 
 #endif // SEMAPHORE_H

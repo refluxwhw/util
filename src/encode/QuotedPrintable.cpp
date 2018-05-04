@@ -1,11 +1,12 @@
-﻿#include "UtilQuotedPrintable.h"
+﻿#include "QuotedPrintable.h"
 
 #include <stdio.h>
 #include <string.h>
 
-namespace Util {
+namespace util {
+namespace encode  {
 
-std::string QuotedPrintable::encode(const char *data, size_t len, size_t maxLine)
+std::string encodeQP(const char *data, size_t len, size_t maxLine)
 {
     char* buf = new char[len*3+1];
 
@@ -47,7 +48,7 @@ std::string QuotedPrintable::encode(const char *data, size_t len, size_t maxLine
     return outStr;
 }
 
-size_t QuotedPrintable::decode(const char *pSrc, size_t nSrcLen, char **outBuf)
+size_t decodeQP(const char *pSrc, size_t nSrcLen, char **outBuf)
 {
     size_t nDstLen = 0;        // 输出的字符计数
     size_t i = 0;
@@ -97,5 +98,5 @@ size_t QuotedPrintable::decode(const char *pSrc, size_t nSrcLen, char **outBuf)
     return nDstLen;
 }
 
-
-} // namespace Util
+} // namespace encode
+} // namespace util

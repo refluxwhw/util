@@ -1,4 +1,4 @@
-﻿#include "UtilDir.h"
+﻿#include "Dir.h"
 
 #ifdef _WIN32
 
@@ -23,9 +23,10 @@ typedef signed int ssize_t;
 
 #endif /* ifdef _WIN32 */
 
-namespace Util {
+namespace util {
+namespace dir {
 
-std::string Dir::getAppDir()
+std::string getAppDir()
 {
 #ifdef _WIN32
     ///TODO:
@@ -54,7 +55,7 @@ std::string Dir::getAppDir()
 #endif
 }
 
-bool Dir::isDirExist(const std::string &dir)
+bool isDirExist(const std::string &dir)
 {
     if ("" == dir) {
         return true;
@@ -72,7 +73,7 @@ bool Dir::isDirExist(const std::string &dir)
     return false;
 }
 
-std::string Dir::getParentDir(const std::string &path)
+std::string getParentDir(const std::string &path)
 {
     std::string parent;
 
@@ -97,7 +98,7 @@ std::string Dir::getParentDir(const std::string &path)
     return parent;
 }
 
-bool Dir::mkDir(const std::string &dir)
+bool mkDir(const std::string &dir)
 {
     if (!isDirExist(dir)) {
         std::string parent = getParentDir(dir);
@@ -118,7 +119,7 @@ bool Dir::mkDir(const std::string &dir)
     return true;
 }
 
-bool Dir::fileList(std::vector<std::string> &files, const std::string& path,
+bool fileList(std::vector<std::string> &files, const std::string& path,
                    bool recursive)
 {
     DIR* dir = opendir(path.c_str());//打开指定目录
@@ -155,5 +156,6 @@ bool Dir::fileList(std::vector<std::string> &files, const std::string& path,
     return true;
 }
 
-} // namespace Util
+} // namespace dir
+} // namespace util
 
