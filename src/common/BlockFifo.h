@@ -4,7 +4,7 @@
 #include <map>
 #include <mutex>
 
-#include "fifo.tcc"
+#include "Fifo.hpp"
 
 namespace util {
 
